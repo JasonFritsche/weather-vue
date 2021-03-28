@@ -1,9 +1,9 @@
 <template>
   <v-app>
     <TheNavigation />
-    <v-main>
-      <!--  -->
-    </v-main>
+    <v-content>
+      <router-view></router-view>
+    </v-content>
   </v-app>
 </template>
 

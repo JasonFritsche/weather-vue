@@ -1,7 +1,11 @@
 <template>
   <div>
     <v-navigation-drawer v-model="drawer" app>
-      <!--  -->
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title>Home</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
     </v-navigation-drawer>
 
     <v-app-bar app>

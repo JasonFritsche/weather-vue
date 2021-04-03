@@ -7,20 +7,25 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    currentForecast: {},
+    currentForecast: {
+      data: {},
+      isLoaded: false,
+    },
   },
   mutations: {
     SET_CURRENTFORECAST(state, data) {
-      state.currentForecast = data;
-      console.log(state);
+      state.currentForecast.data = data;
+      state.currentForecast.isLoaded = true;
     },
   },
   actions: {
     loadCurrentForecast({ commit }) {
-      axios.get(`${BASE_URL}?q=Austin&appid=${API_KEY}`).then((response) => {
-        console.log(response.data);
-        commit('SET_CURRENTFORECAST', response.data);
-      });
+      axios
+        .get(`${BASE_URL}?q=Austin&appid=${API_KEY}&units=imperial`)
+        .then((response) => {
+          console.log(response.data);
+          commit('SET_CURRENTFORECAST', response.data);
+        });
     },
   },
   getters: {

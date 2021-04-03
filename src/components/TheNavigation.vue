@@ -3,7 +3,12 @@
     <v-navigation-drawer v-model="drawer" app>
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title>Home</v-list-item-title>
+          <v-list-item-title>
+            <router-link to="/">Home</router-link>
+          </v-list-item-title>
+          <v-list-item-title>
+            <router-link to="/current">Current Forecast</router-link>
+          </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-navigation-drawer>

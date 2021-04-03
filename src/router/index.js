@@ -4,10 +4,16 @@ import Home from '../views/Home';
 
 Vue.use(VueRouter);
 
+const CurrentForeCastLazy = () => import('../views/CurrentForecast');
+
 const routes = [
   {
     path: '/',
     component: Home,
+  },
+  {
+    path: '/current',
+    component: CurrentForeCastLazy,
   },
 ];
 

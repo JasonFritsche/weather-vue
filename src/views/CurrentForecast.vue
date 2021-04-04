@@ -7,7 +7,7 @@
     >
       <v-list-item three-line>
         <v-list-item-content>
-          <v-list-item-title class="headline">
+          <v-list-item-title class="header-text">
             {{ currentForecast.data.name }}
           </v-list-item-title>
           <v-list-item-subtitle>{{ currentDate }} </v-list-item-subtitle>
@@ -31,13 +31,13 @@
         <v-row>
           <v-col cols="3" class="d-flex justify-center">
             <div>
-              <h1>High</h1>
+              <h1 class="header-text">High</h1>
               <p>{{ currentForecast.data.main.temp_max }}&deg;F</p>
             </div>
           </v-col>
           <v-col cols="3" class="d-flex justify-center">
             <div>
-              <h1>Low</h1>
+              <h1 class="header-text">Low</h1>
               <p>{{ currentForecast.data.main.temp_min }}&deg;F</p>
             </div>
           </v-col>
@@ -102,7 +102,9 @@ export default {
   margin: auto;
   padding: 0.5em 0;
 }
-h1 {
-  color: $primary;
+.header-text {
+  font-family: $primary-font;
+  color: $primary-font-color;
+  font-size: $header-font-size;
 }
 </style>

@@ -17,5 +17,4 @@ export default {
   },
 };
 </script>
-
-TheToolbar
+<style></style>

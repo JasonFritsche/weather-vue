@@ -93,7 +93,7 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style lang="scss">
 .cf-container {
   padding: 3em;
 }
@@ -101,5 +101,8 @@ export default {
   width: 90%;
   margin: auto;
   padding: 0.5em 0;
+}
+h1 {
+  color: $primary;
 }
 </style>

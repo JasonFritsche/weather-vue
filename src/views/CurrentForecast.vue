@@ -26,19 +26,44 @@
           </v-col>
         </v-row>
       </v-container>
+      <v-divider class="divider"></v-divider>
       <v-container fill-height>
-        <v-row align="center" justify="center">
-          <v-col cols="6" class="d-flex justify-center">
+        <v-row>
+          <v-col cols="3" class="d-flex justify-center">
             <div>
               <h1>High</h1>
               <p>{{ currentForecast.data.main.temp_max }}&deg;F</p>
             </div>
           </v-col>
-          <v-col cols="6" class="d-flex justify-center">
+          <v-col cols="3" class="d-flex justify-center">
             <div>
               <h1>Low</h1>
               <p>{{ currentForecast.data.main.temp_min }}&deg;F</p>
             </div>
+          </v-col>
+          <v-col cols="3">
+            <v-row align="center" justify="center">
+              <v-col class="d-flex justify-center">
+                <v-icon>mdi-weather-sunset-up</v-icon>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col class="d-flex justify-center">
+                <p>{{ currentForecast.data.sys.sunrise }}</p>
+              </v-col>
+            </v-row>
+          </v-col>
+          <v-col cols="3">
+            <v-row align="center" justify="center">
+              <v-col class="d-flex justify-center">
+                <v-icon>mdi-weather-sunset-down</v-icon>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col class="d-flex justify-center">
+                <p>{{ currentForecast.data.sys.sunset }}</p>
+              </v-col>
+            </v-row>
           </v-col>
         </v-row>
       </v-container>
@@ -71,5 +96,10 @@ export default {
 <style scoped>
 .cf-container {
   padding: 3em;
+}
+.divider {
+  width: 90%;
+  margin: auto;
+  padding: 0.5em 0;
 }
 </style>

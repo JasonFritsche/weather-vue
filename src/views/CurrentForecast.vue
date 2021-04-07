@@ -49,7 +49,7 @@
             </v-row>
             <v-row>
               <v-col class="d-flex justify-center">
-                <p>{{ currentForecast.data.sys.sunrise }}</p>
+                <p>{{ convertedTime(currentForecast.data.sys.sunrise) }}</p>
               </v-col>
             </v-row>
           </v-col>
@@ -61,7 +61,7 @@
             </v-row>
             <v-row>
               <v-col class="d-flex justify-center">
-                <p>{{ currentForecast.data.sys.sunset }}</p>
+                <p>{{ convertedTime(currentForecast.data.sys.sunset) }}</p>
               </v-col>
             </v-row>
           </v-col>
@@ -90,6 +90,22 @@ export default {
   },
   created() {
     this.$store.dispatch('loadCurrentForecast');
+  },
+  methods: {
+    convertedTime(unixTime) {
+      var date = new Date(unixTime * 1000);
+      // Hours part from the timestamp
+      var hours = date.getHours();
+      // Minutes part from the timestamp
+      var minutes = '0' + date.getMinutes();
+      // Seconds part from the timestamp
+      var seconds = '0' + date.getSeconds();
+
+      // Will display time in 10:30:23 format
+      var formattedTime =
+        hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+      return formattedTime;
+    },
   },
 };
 </script>

@@ -6,23 +6,36 @@
           {{ forecastData.city.name }}
         </v-list-item-title>
         <v-list-item-subtitle>{{ currentDate }} </v-list-item-subtitle>
-        <v-list-item-subtitle>
-          hello
-        </v-list-item-subtitle>
       </v-list-item-content>
     </v-list-item>
+    <v-container fluid>
+      <v-row justify="space-between">
+        <v-col
+          cols="2"
+          sm="12"
+          md="2"
+          lg="2"
+          xl="2"
+          v-for="(item, index) in fiveDayData"
+          :key="index"
+        >
+          <FiveDayItem :forecast-data="item"></FiveDayItem>
+        </v-col>
+      </v-row>
+    </v-container>
   </v-card>
 </template>
 <script>
 import { getCurrentDate } from '../util/utils';
+import FiveDayItem from './FiveDayItem';
 export default {
   name: 'WeatherCard',
   props: ['forecastData'],
+  components: { FiveDayItem },
   data: () => ({
     fiveDayData: [],
   }),
   mounted() {
-    console.log(this.forecastData);
     this.parseForecastData();
   },
   computed: {
@@ -33,16 +46,15 @@ export default {
   methods: {
     parseForecastData() {
       const itemsPerChunk = 8; // items per chunk
-
       const parsedData = this.forecastData.list.reduce(
         (acc, currentItem, i) => {
-          const chunk = Math.floor(i / itemsPerChunk);
-          acc[chunk] = [].concat(acc[chunk] || [], currentItem);
+          const chunkIndex = Math.floor(i / itemsPerChunk);
+          acc[chunkIndex] = [].concat(acc[chunkIndex] || [], currentItem);
           return acc;
         },
         []
       );
-      console.log(parsedData);
+      this.fiveDayData = parsedData;
     },
   },
 };

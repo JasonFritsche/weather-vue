@@ -31,7 +31,6 @@ export default new Vuex.Store({
       axios
         .get(`${BASE_URL}/weather?q=Austin&appid=${API_KEY}&units=imperial`)
         .then((response) => {
-          console.log(response.data);
           commit('SET_CURRENTFORECAST', response.data);
         });
     },
@@ -39,7 +38,6 @@ export default new Vuex.Store({
       axios
         .get(`${BASE_URL}/forecast?q=Austin&appid=${API_KEY}&units=imperial`)
         .then((response) => {
-          console.log(response.data);
           commit('SET_FIVEDAYFORECAST', response.data);
         });
     },

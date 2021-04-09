@@ -48,9 +48,18 @@ const getCurrentDate = () => {
   return `${dayName} ${monthName} ${date} ${year}`;
 };
 
+const getMonthDayDate = (unixTimeStamp) => {
+  const dateFromTimeStamp = new Date(unixTimeStamp * 1000);
+  const month = months[dateFromTimeStamp.getUTCMonth()];
+  const day = days[dateFromTimeStamp.getUTCDay()];
+  const date = dateFromTimeStamp.getUTCDate();
+
+  return `${day}, ${month} ${date}`;
+};
+
 const getWeatherIcon = (iconId) => {
   const icon = iconMap[iconId];
   return icon;
 };
 
-export { getCurrentDate, getWeatherIcon };
+export { getCurrentDate, getWeatherIcon, getMonthDayDate };

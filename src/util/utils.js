@@ -57,9 +57,28 @@ const getMonthDayDate = (unixTimeStamp) => {
   return `${day}, ${month} ${date}`;
 };
 
+const getTimeOfDay = (unixTimeStamp) => {
+  const dateFromTimeStamp = new Date(unixTimeStamp * 1000);
+  const hour = dateFromTimeStamp.getHours();
+  const minutes = dateFromTimeStamp.getMinutes();
+  const twelveHourDesignator = hour > 12 ? 'PM' : 'AM';
+  const formattedHour = hour > 12 ? hour - 12 : hour;
+  const formattedMinutes = padRight(minutes, 2, '0');
+  return `${formattedHour}:${formattedMinutes}${twelveHourDesignator}`;
+};
+
 const getWeatherIcon = (iconId) => {
   const icon = iconMap[iconId];
   return icon;
 };
 
-export { getCurrentDate, getWeatherIcon, getMonthDayDate };
+const padRight = (itemToPad, totalLength, padCharacter) => {
+  const item = itemToPad.toString();
+  let returnItem = item;
+  if (item.length < totalLength) {
+    returnItem = item.padEnd(totalLength, padCharacter);
+  }
+  return returnItem;
+};
+
+export { getCurrentDate, getWeatherIcon, getMonthDayDate, getTimeOfDay };

@@ -26,7 +26,7 @@
   </v-card>
 </template>
 <script>
-import { getCurrentDate } from '../util/utils';
+import { getCurrentDate, getDateOfWeek } from '../util/utils';
 import FiveDayItem from './FiveDayItem';
 export default {
   name: 'WeatherCard',
@@ -46,14 +46,20 @@ export default {
   methods: {
     parseForecastData() {
       const itemsPerChunk = 8; // items per chunk
-      const parsedData = this.forecastData.list.reduce(
-        (acc, currentItem, i) => {
-          const chunkIndex = Math.floor(i / itemsPerChunk);
-          acc[chunkIndex] = [].concat(acc[chunkIndex] || [], currentItem);
-          return acc;
-        },
-        []
-      );
+      // filter out today's date
+      const filteredList = this.forecastData.list.filter((item) => {
+        const itemDayOfWeek = getDateOfWeek(item.dt);
+        const date = new Date();
+        const today = date.getDate();
+        if (today !== itemDayOfWeek) {
+          return item;
+        }
+      });
+      const parsedData = filteredList.reduce((acc, currentItem, i) => {
+        const chunkIndex = Math.floor(i / itemsPerChunk);
+        acc[chunkIndex] = [].concat(acc[chunkIndex] || [], currentItem);
+        return acc;
+      }, []);
       this.fiveDayData = parsedData;
     },
   },

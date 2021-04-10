@@ -67,6 +67,11 @@ const getTimeOfDay = (unixTimeStamp) => {
   return `${formattedHour}:${formattedMinutes}${twelveHourDesignator}`;
 };
 
+const getDateOfWeek = (unixTimeStamp) => {
+  const dateFromTimeStamp = new Date(unixTimeStamp * 1000);
+  return dateFromTimeStamp.getDate();
+};
+
 const getWeatherIcon = (iconId) => {
   const icon = iconMap[iconId];
   return icon;
@@ -81,4 +86,10 @@ const padRight = (itemToPad, totalLength, padCharacter) => {
   return returnItem;
 };
 
-export { getCurrentDate, getWeatherIcon, getMonthDayDate, getTimeOfDay };
+export {
+  getCurrentDate,
+  getWeatherIcon,
+  getMonthDayDate,
+  getTimeOfDay,
+  getDateOfWeek,
+};

@@ -3,13 +3,15 @@
     <div>
       {{ formattedDate }}
     </div>
-    <div>
-      hello
+    <div v-for="(item, index) in this.forecastData" :key="index">
+      <ul>
+        <li>{{ formattedTimeOfDay(item.dt) }}</li>
+      </ul>
     </div>
   </div>
 </template>
 <script>
-import { getMonthDayDate } from '../util/utils';
+import { getMonthDayDate, getTimeOfDay } from '../util/utils';
 export default {
   name: 'FiveDayItem',
   props: ['forecastData'],
@@ -19,6 +21,9 @@ export default {
   methods: {
     init() {
       this.formattedDate = getMonthDayDate(this.forecastData[0].dt);
+    },
+    formattedTimeOfDay(timeStamp) {
+      return getTimeOfDay(timeStamp);
     },
   },
   mounted() {

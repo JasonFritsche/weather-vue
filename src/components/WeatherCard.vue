@@ -11,9 +11,11 @@
     <v-container fluid>
       <v-row justify="space-between">
         <v-col
-          cols="2"
+          class="mb-4 d-flex flex-column"
+          cols="12"
+          xs="12"
           sm="12"
-          md="2"
+          md="12"
           lg="2"
           xl="2"
           v-for="(item, index) in fiveDayData"

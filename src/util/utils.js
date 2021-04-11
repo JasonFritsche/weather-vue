@@ -1,5 +1,5 @@
 const iconMap = {
-  '01d': 'mdi-brightness-1',
+  '01d': 'mdi-brightness-7',
   '01n': 'mdi-weather-night',
   '02d': 'mdi-weather-partly-cloudy',
   '02n': 'mdi-weather-night-partly-cloudy',

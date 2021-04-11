@@ -28,7 +28,6 @@ export default {
   }),
   methods: {
     init() {
-      console.log(this.forecastData);
       this.getTemps();
       this.formattedDate = getMonthDayDate(this.forecastData[0].dt);
       this.getHighAndLowTemps();

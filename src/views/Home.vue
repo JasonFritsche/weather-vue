@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="home-container">
+    <TheSearch></TheSearch>
     <WeatherCard
       v-if="fiveDayForecast.isLoaded"
       :forecast-data="fiveDayForecast.data"
@@ -8,10 +9,12 @@
 </template>
 <script>
 import WeatherCard from '../components/WeatherCard';
+import TheSearch from '../components/TheSearch';
 export default {
   name: 'Home',
   components: {
     WeatherCard,
+    TheSearch,
   },
   computed: {
     fiveDayForecast() {
@@ -23,4 +26,10 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+.home-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+</style>

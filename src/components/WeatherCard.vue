@@ -1,10 +1,6 @@
 <template>
   <div v-if="currentForecast.isLoaded" class="cf-container">
-    <v-card
-      class="mx-auto mt-6"
-      max-width="1200"
-      :loading="!currentForecast.isLoaded"
-    >
+    <v-card class="mx-auto mt-6" :loading="!currentForecast.isLoaded">
       <v-list-item three-line>
         <v-list-item-content>
           <v-list-item-title class="header-text">
@@ -97,4 +93,8 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style lang="scss" scoped>
+.cf-container {
+  width: $large-widget-width;
+}
+</style>

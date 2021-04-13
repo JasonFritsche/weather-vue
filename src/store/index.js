@@ -15,6 +15,7 @@ export default new Vuex.Store({
       data: {},
       isLoaded: false,
     },
+    searchTerm: 'New York',
   },
   mutations: {
     SET_CURRENTFORECAST(state, data) {
@@ -25,18 +26,25 @@ export default new Vuex.Store({
       state.fiveDayForecast.data = data;
       state.fiveDayForecast.isLoaded = true;
     },
+    SET_SEARCHTERM(state, data) {
+      state.searchTerm = data;
+    },
   },
   actions: {
-    loadCurrentForecast({ commit }) {
+    loadCurrentForecast({ commit, state }) {
       axios
-        .get(`${BASE_URL}/weather?q=Austin&appid=${API_KEY}&units=imperial`)
+        .get(
+          `${BASE_URL}/weather?q=${state.searchTerm}&appid=${API_KEY}&units=imperial`
+        )
         .then((response) => {
           commit('SET_CURRENTFORECAST', response.data);
         });
     },
-    loadFiveDayForecast({ commit }) {
+    loadFiveDayForecast({ commit, state }) {
       axios
-        .get(`${BASE_URL}/forecast?q=Austin&appid=${API_KEY}&units=imperial`)
+        .get(
+          `${BASE_URL}/forecast?q=${state.searchTerm}&appid=${API_KEY}&units=imperial`
+        )
         .then((response) => {
           commit('SET_FIVEDAYFORECAST', response.data);
         });

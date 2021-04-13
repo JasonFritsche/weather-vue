@@ -4,10 +4,9 @@
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title>
-            <router-link to="/">Home</router-link>
-          </v-list-item-title>
-          <v-list-item-title>
-            <router-link to="/current">Current Forecast</router-link>
+            <router-link to="/"
+              >home<v-icon>mdi-home-variant-outline</v-icon></router-link
+            >
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>

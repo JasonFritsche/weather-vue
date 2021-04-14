@@ -2,9 +2,8 @@
   <div class="text-field-container">
     <v-text-field
       v-model="searchTerm"
-      label="filled"
-      placeholder="Placeholder"
-      solo-inverted
+      label="Search By City"
+      outlined
       clearable
       @keyup="handleSearch"
     ></v-text-field>

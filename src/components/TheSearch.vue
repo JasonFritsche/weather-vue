@@ -18,7 +18,6 @@ export default {
     handleSearch(e) {
       // only do something if enter is pressed
       if (e.keyCode === 13) {
-        console.log(this.searchTerm);
         this.$store.commit('SET_SEARCHTERM', this.searchTerm);
         this.$store.dispatch('loadCurrentForecast');
         this.$store.dispatch('loadFiveDayForecast');

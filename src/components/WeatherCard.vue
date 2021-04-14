@@ -82,9 +82,7 @@ export default {
   },
   methods: {
     parseForecastData() {
-      console.log(this.fiveDayForecast);
       const list = this.fiveDayForecast.data.list;
-      console.log(list);
       const itemsPerChunk = 8; // items per chunk
       // filter out today's date
       const filteredList = list.filter((item) => {

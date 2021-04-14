@@ -62,6 +62,7 @@ export default {
     forecastData: {
       deep: true,
       handler() {
+        this.temperatureData = [];
         this.init();
       },
     },

@@ -49,20 +49,21 @@ import { getCurrentDate, getDateOfWeek, getWeatherIcon } from '../util/utils';
 import FiveDayItem from './FiveDayItem';
 export default {
   name: 'WeatherCard',
-  props: ['forecastData'],
+  props: [],
   components: { FiveDayItem },
   data: () => ({
     fiveDayData: [],
   }),
   created() {
     this.$store.dispatch('loadCurrentForecast');
-  },
-  mounted() {
-    this.parseForecastData();
+    this.$store.dispatch('loadFiveDayForecast');
   },
   computed: {
     currentForecast() {
       return this.$store.state.currentForecast;
+    },
+    fiveDayForecast() {
+      return this.$store.state.fiveDayForecast;
     },
     weatherIcon() {
       return getWeatherIcon(this.currentForecast.data.weather[0].icon);
@@ -71,11 +72,22 @@ export default {
       return getCurrentDate();
     },
   },
+  watch: {
+    fiveDayForecast: {
+      deep: true,
+      handler() {
+        this.parseForecastData();
+      },
+    },
+  },
   methods: {
     parseForecastData() {
+      console.log(this.fiveDayForecast);
+      const list = this.fiveDayForecast.data.list;
+      console.log(list);
       const itemsPerChunk = 8; // items per chunk
       // filter out today's date
-      const filteredList = this.forecastData.list.filter((item) => {
+      const filteredList = list.filter((item) => {
         const itemDayOfWeek = getDateOfWeek(item.dt);
         const date = new Date();
         const today = date.getDate();

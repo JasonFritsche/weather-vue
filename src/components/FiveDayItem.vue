@@ -58,6 +58,14 @@ export default {
   mounted() {
     this.init();
   },
+  watch: {
+    forecastData: {
+      deep: true,
+      handler() {
+        this.init();
+      },
+    },
+  },
 };
 </script>
 <style lang="scss">

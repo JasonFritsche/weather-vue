@@ -5,8 +5,16 @@
       label="Search By City"
       outlined
       clearable
-      @keyup="handleSearch"
+      @keyup="handleSearch($event, null)"
+      class="search-item search-text-field"
     ></v-text-field>
+    <v-btn
+      color="primary"
+      class="search-item search-button"
+      @click="handleSearch($event, true)"
+    >
+      Search
+    </v-btn>
   </div>
 </template>
 <script>
@@ -14,9 +22,9 @@ export default {
   name: 'TheSearch',
   data: () => ({ searchTerm: '' }),
   methods: {
-    handleSearch(e) {
-      // only do something if enter is pressed
-      if (e.keyCode === 13) {
+    handleSearch(event, isFromButtonClick) {
+      // only do something if enter is pressed or search button clicked
+      if (event.keyCode === 13 || isFromButtonClick) {
         this.$store.commit('SET_SEARCHTERM', this.searchTerm);
         this.$store.dispatch('loadCurrentForecast');
         this.$store.dispatch('loadFiveDayForecast');
@@ -29,5 +37,14 @@ export default {
 .text-field-container {
   width: $large-widget-width;
   margin-top: 1.6em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .search-item {
+    height: 3em !important;
+  }
+  .search-text-field {
+    margin-right: 6px;
+  }
 }
 </style>

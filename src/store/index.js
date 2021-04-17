@@ -37,6 +37,7 @@ export default new Vuex.Store({
           `${BASE_URL}/weather?q=${state.searchTerm}&appid=${API_KEY}&units=imperial`
         )
         .then((response) => {
+          console.log(response.data);
           commit('SET_CURRENTFORECAST', response.data);
         });
     },

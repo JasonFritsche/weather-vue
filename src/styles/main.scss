@@ -1,1 +1,17 @@
 @import './variables';
+
+.card-container {
+  width: $large-widget-width;
+}
+
+.header-text {
+  font-family: $primary-font;
+  color: $primary-font-color;
+  font-size: $header-font-size;
+}
+
+.weather-description {
+  font-family: $primary-font;
+  color: lighten($primary-font-color, 10);
+  font-size: $description-font-size;
+}

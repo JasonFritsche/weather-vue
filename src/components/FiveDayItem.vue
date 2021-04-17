@@ -71,16 +71,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-.header-text {
-  font-family: $primary-font;
-  color: $primary-font-color;
-  font-size: $header-font-size;
-}
-
-.weather-description {
-  font-family: $primary-font;
-  color: lighten($primary-font-color, 10);
-  font-size: $description-font-size;
-}
-</style>
+<style lang="scss"></style>

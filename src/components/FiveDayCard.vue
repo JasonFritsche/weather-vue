@@ -48,7 +48,7 @@
 import { getCurrentDate, getDateOfWeek, getWeatherIcon } from '../util/utils';
 import FiveDayItem from './FiveDayItem';
 export default {
-  name: 'WeatherCard',
+  name: 'FiveDayCard',
   props: [],
   components: { FiveDayItem },
   data: () => ({

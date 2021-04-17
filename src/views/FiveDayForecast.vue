@@ -10,10 +10,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-.home-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
-}
-</style>

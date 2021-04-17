@@ -1,31 +1,7 @@
 <template>
-  <div v-if="currentForecast.isLoaded" class="cf-container">
-    <v-card class="mx-auto mt-6" :loading="!currentForecast.isLoaded">
-      <v-list-item three-line>
-        <v-list-item-content>
-          <v-list-item-title class="header-text">
-            {{ currentForecast.data.name }}
-          </v-list-item-title>
-          <v-list-item-subtitle>{{ currentDate }} </v-list-item-subtitle>
-          <v-list-item-subtitle>
-            {{ currentForecast.data.weather[0].description }}
-          </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-card-text>
-        <v-row align="center">
-          <v-col class="display-3" cols="6">
-            {{ Math.round(currentForecast.data.main.temp) }}&deg;F
-          </v-col>
-          <v-col cols="6">
-            <v-icon class="weather-icon" color="blue-grey darken-3">{{
-              weatherIcon
-            }}</v-icon>
-          </v-col>
-        </v-row>
-      </v-card-text>
-
+  <div class="card-container">
+    <v-card class="mx-auto mt-6">
+      <CurrentDayHeader></CurrentDayHeader>
       <v-container fluid>
         <v-expansion-panels>
           <v-expansion-panel v-for="(item, index) in fiveDayData" :key="index">
@@ -37,31 +13,22 @@
   </div>
 </template>
 <script>
-import { getCurrentDate, getDateOfWeek, getWeatherIcon } from '../util/utils';
+import { getDateOfWeek } from '../util/utils';
 import FiveDayItem from './FiveDayItem';
+import CurrentDayHeader from './CurrentDayHeader';
 export default {
   name: 'FiveDayCard',
   props: [],
-  components: { FiveDayItem },
+  components: { FiveDayItem, CurrentDayHeader },
   data: () => ({
     fiveDayData: [],
   }),
   created() {
-    this.$store.dispatch('loadCurrentForecast');
     this.$store.dispatch('loadFiveDayForecast');
   },
   computed: {
-    currentForecast() {
-      return this.$store.state.currentForecast;
-    },
     fiveDayForecast() {
       return this.$store.state.fiveDayForecast;
-    },
-    weatherIcon() {
-      return getWeatherIcon(this.currentForecast.data.weather[0].icon);
-    },
-    currentDate() {
-      return getCurrentDate();
     },
   },
   watch: {
@@ -95,12 +62,4 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
-.cf-container {
-  width: $large-widget-width;
-}
-.weather-icon {
-  font-size: 4em;
-  padding-bottom: 0.5em;
-}
-</style>
+<style lang="scss" scoped></style>

@@ -1,20 +1,19 @@
 <template>
   <div class="five-day-item-container">
-    <div>
-      <div class="d-flex align-center fdi-header-with-icon">
-        <h1 class="header-text">{{ formattedDate }}</h1>
-        <v-btn icon color="blue darken-2">
-          <v-icon>mdi-dots-horizontal-circle</v-icon>
-        </v-btn>
-      </div>
-      <h2 class="weather-description">{{ weatherDescription }}</h2>
-    </div>
-    <v-row>
-      <v-col
-        >{{ Math.round(dailyHighTemp.temp) }}&deg;F /
-        {{ Math.round(dailyLowTemp.temp) }}&deg;F</v-col
-      >
-    </v-row>
+    <v-expansion-panel-header>
+      <v-row>
+        <v-col>
+          {{ formattedDate }}
+        </v-col>
+        <v-col>
+          {{ weatherDescription }}
+        </v-col>
+        <v-col>
+          {{ Math.round(dailyHighTemp.temp) }}&deg;F /
+          {{ Math.round(dailyLowTemp.temp) }}&deg;F
+        </v-col>
+      </v-row>
+    </v-expansion-panel-header>
   </div>
 </template>
 <script>
@@ -83,9 +82,5 @@ export default {
   font-family: $primary-font;
   color: lighten($primary-font-color, 10);
   font-size: $description-font-size;
-}
-
-i.v-icon.v-icon:hover {
-  color: red;
 }
 </style>

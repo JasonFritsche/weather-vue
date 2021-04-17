@@ -19,27 +19,19 @@
             {{ Math.round(currentForecast.data.main.temp) }}&deg;F
           </v-col>
           <v-col cols="6">
-            <v-icon large color="blue-grey darken-3">{{ weatherIcon }}</v-icon>
+            <v-icon class="weather-icon" color="blue-grey darken-3">{{
+              weatherIcon
+            }}</v-icon>
           </v-col>
         </v-row>
       </v-card-text>
 
       <v-container fluid>
-        <v-row justify="space-between">
-          <v-col
-            class="mb-4 d-flex flex-column"
-            cols="12"
-            xs="12"
-            sm="12"
-            md="12"
-            lg="2"
-            xl="2"
-            v-for="(item, index) in fiveDayData"
-            :key="index"
-          >
+        <v-expansion-panels>
+          <v-expansion-panel v-for="(item, index) in fiveDayData" :key="index">
             <FiveDayItem :forecast-data="item"></FiveDayItem>
-          </v-col>
-        </v-row>
+          </v-expansion-panel>
+        </v-expansion-panels>
       </v-container>
     </v-card>
   </div>
@@ -48,7 +40,7 @@
 import { getCurrentDate, getDateOfWeek, getWeatherIcon } from '../util/utils';
 import FiveDayItem from './FiveDayItem';
 export default {
-  name: 'WeatherCard',
+  name: 'FiveDayCard',
   props: [],
   components: { FiveDayItem },
   data: () => ({
@@ -106,5 +98,9 @@ export default {
 <style lang="scss" scoped>
 .cf-container {
   width: $large-widget-width;
+}
+.weather-icon {
+  font-size: 4em;
+  padding-bottom: 0.5em;
 }
 </style>

@@ -1,15 +1,12 @@
 <template>
-  <div class="home-container">
-    <TheSearch></TheSearch>
-    <router-view></router-view>
-  </div>
+  <FiveDayCard></FiveDayCard>
 </template>
 <script>
-import TheSearch from '../components/TheSearch';
+import FiveDayCard from '../components/FiveDayCard';
 export default {
-  name: 'Home',
+  name: 'FiveDayForecast',
   components: {
-    TheSearch,
+    FiveDayCard,
   },
 };
 </script>

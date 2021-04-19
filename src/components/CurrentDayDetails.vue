@@ -1,5 +1,7 @@
 <template>
-  <div>
+  <div
+    v-if="currentForecast && currentForecast.data && currentForecast.data.main"
+  >
     <v-row align="stretch">
       <v-col cols="6" md="3" class="d-flex justify-center align-center">
         <div>

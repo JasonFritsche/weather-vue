@@ -14,12 +14,17 @@
         </v-col>
       </v-row>
     </v-expansion-panel-header>
+    <v-expansion-panel-content
+      ><FiveDayItemDetail :forecastData="forecastData"></FiveDayItemDetail>
+    </v-expansion-panel-content>
   </div>
 </template>
 <script>
 import { getMonthDayDate, getTimeOfDay } from '../util/utils';
+import FiveDayItemDetail from './FiveDayItemDetail';
 export default {
   name: 'FiveDayItem',
+  components: { FiveDayItemDetail },
   props: ['forecastData'],
   data: () => ({
     formattedDate: null,

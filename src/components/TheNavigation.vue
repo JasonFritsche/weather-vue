@@ -46,6 +46,10 @@ a {
   color: $primary-font-color !important;
 }
 
+.nav-list {
+  padding: 0;
+}
+
 .nav-item {
   cursor: pointer;
 }

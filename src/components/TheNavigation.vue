@@ -47,7 +47,7 @@ a {
 }
 
 .nav-list {
-  padding: 0;
+  padding: 0 !important;
 }
 
 .nav-item {

@@ -7,7 +7,7 @@
     outlined
     clearable
     @keyup="handleSearch($event)"
-    class="align-self-start"
+    class="align-self-start search-text-field"
   ></v-text-field>
 </template>
 <script>
@@ -26,4 +26,8 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.search-text-field {
+  width: 50vw;
+}
+</style>

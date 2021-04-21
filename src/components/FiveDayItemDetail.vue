@@ -12,8 +12,7 @@ export default {
   components: { Chart },
   data: () => ({
     timeOfDayCategories: [],
-    highTemps: [],
-    lowTemps: [],
+    temps: [],
     chartOptions: null,
   }),
   mounted() {
@@ -23,15 +22,18 @@ export default {
   methods: {
     parseForecastData() {
       this.forecastData.forEach((el) => {
+        console.log(el);
         this.timeOfDayCategories.push(getTimeOfDay(el.dt));
-        this.highTemps.push(el.main.temp_max);
-        this.lowTemps.push(el.main.temp_min);
+        this.temps.push(el.main.temp);
       });
     },
     buildChartOptions() {
       const options = {
         title: {
-          text: 'Forecast',
+          text: '',
+        },
+        credits: {
+          enabled: false,
         },
         xAxis: {
           categories: [...this.timeOfDayCategories],
@@ -41,14 +43,15 @@ export default {
             text: 'Temperature (°F)',
           },
         },
+        tooltip: {
+          formatter: function() {
+            return `<b>${Math.round(this.y)}&deg;F</b><br/>${this.x}`;
+          },
+        },
         series: [
           {
-            name: 'High',
-            data: [...this.highTemps],
-          },
-          {
-            name: 'Low',
-            data: [...this.lowTemps],
+            name: 'Temperature',
+            data: [...this.temps],
           },
         ],
       };

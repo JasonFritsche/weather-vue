@@ -18,9 +18,13 @@
           {{ Math.round(currentForecast.data.main.temp) }}&deg;F
         </v-col>
         <v-col cols="6">
-          <v-icon class="weather-icon" color="blue-grey darken-3">{{
-            weatherIcon
-          }}</v-icon>
+          <v-icon
+            class="weather-icon"
+            :color="
+              $vuetify.theme.dark ? 'blue-grey lighten-3' : 'blue-grey darken-3'
+            "
+            >{{ weatherIcon }}</v-icon
+          >
         </v-col>
       </v-row>
     </v-card-text>

@@ -6,6 +6,7 @@
 <script>
 import Chart from './Chart';
 import { getTimeOfDay } from '../util/utils';
+import { mapState } from 'vuex';
 export default {
   name: 'FiveDayItemDetail',
   props: ['forecastData'],
@@ -17,20 +18,29 @@ export default {
   }),
   mounted() {
     this.parseForecastData();
-    this.buildChartOptions();
+    this.buildChartOptions('#fff');
+  },
+  computed: mapState(['theme']),
+  watch: {
+    theme(theme) {
+      const chartBgColor = theme === 'dark' ? '#1E1E1E' : '#fff';
+      this.buildChartOptions(chartBgColor);
+    },
   },
   methods: {
     parseForecastData() {
       this.forecastData.forEach((el) => {
-        console.log(el);
         this.timeOfDayCategories.push(getTimeOfDay(el.dt));
         this.temps.push(el.main.temp);
       });
     },
-    buildChartOptions() {
+    buildChartOptions(bgColor) {
       const options = {
         title: {
           text: '',
+        },
+        chart: {
+          backgroundColor: bgColor,
         },
         credits: {
           enabled: false,

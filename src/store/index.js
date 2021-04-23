@@ -16,6 +16,7 @@ export default new Vuex.Store({
       isLoaded: false,
     },
     searchTerm: 'New York',
+    theme: 'light',
   },
   mutations: {
     SET_CURRENTFORECAST(state, data) {
@@ -28,6 +29,9 @@ export default new Vuex.Store({
     },
     SET_SEARCHTERM(state, data) {
       state.searchTerm = data;
+    },
+    SET_CURRENTTHEME(state, data) {
+      state.theme = data;
     },
   },
   actions: {
@@ -53,6 +57,7 @@ export default new Vuex.Store({
   getters: {
     currentForecast: (state) => state.currentForecast,
     fiveDayForecast: (state) => state.fiveDayForecast,
+    currentTheme: (state) => state.theme,
   },
   modules: {},
 });

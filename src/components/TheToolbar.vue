@@ -7,12 +7,12 @@
     <v-spacer></v-spacer>
     <div class="d-flex align-self-start justify-end pt-2">
       <TheSearch></TheSearch>
-      <v-btn icon v-if="!$vuetify.theme.dark" @click="darkMode">
+      <v-btn icon v-if="!$vuetify.theme.dark" @click="updateTheme('dark')">
         <v-icon class="mr-1" color="blue-grey darken-4"
           >mdi-weather-night</v-icon
         >
       </v-btn>
-      <v-btn icon v-if="$vuetify.theme.dark" @click="darkMode">
+      <v-btn icon v-if="$vuetify.theme.dark" @click="updateTheme('light')">
         <v-icon color="yellow darken-3">mdi-white-balance-sunny</v-icon>
       </v-btn>
       <v-btn icon>
@@ -27,7 +27,8 @@ export default {
   name: 'TheToolbar',
   components: { TheSearch },
   methods: {
-    darkMode() {
+    updateTheme(newTheme) {
+      this.$store.commit('SET_CURRENTTHEME', newTheme);
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
     },
   },

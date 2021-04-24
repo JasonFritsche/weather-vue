@@ -15,9 +15,6 @@
       <v-btn icon v-if="$vuetify.theme.dark" @click="updateTheme('light')">
         <v-icon color="yellow darken-3">mdi-white-balance-sunny</v-icon>
       </v-btn>
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
     </div>
   </v-app-bar>
 </template>

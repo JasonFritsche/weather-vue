@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
-import { API_KEY, BASE_URL } from '../constants';
 
 Vue.use(Vuex);
 
@@ -38,7 +37,7 @@ export default new Vuex.Store({
     loadCurrentForecast({ commit, state }) {
       axios
         .get(
-          `${BASE_URL}/weather?q=${state.searchTerm}&appid=${API_KEY}&units=imperial`
+          `${process.env.VUE_APP_URL}/weather?q=${state.searchTerm}&appid=${process.env.VUE_APP_KEY}&units=imperial`
         )
         .then((response) => {
           commit('SET_CURRENTFORECAST', response.data);
@@ -47,7 +46,7 @@ export default new Vuex.Store({
     loadFiveDayForecast({ commit, state }) {
       axios
         .get(
-          `${BASE_URL}/forecast?q=${state.searchTerm}&appid=${API_KEY}&units=imperial`
+          `${process.env.VUE_APP_URL}/forecast?q=${state.searchTerm}&appid=${process.env.VUE_APP_KEY}&units=imperial`
         )
         .then((response) => {
           commit('SET_FIVEDAYFORECAST', response.data);

@@ -5,6 +5,7 @@ node_modules
 src/constants.js
 
 # local env files
+.env
 .env.local
 .env.*.local
 

@@ -7,11 +7,11 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
+    path: '/weather-vue',
     component: CurrentDay,
   },
   {
-    path: '/FiveDayForecast',
+    path: '/weather-vue/FiveDayForecast',
     component: FiveDayForecast,
   },
 ];

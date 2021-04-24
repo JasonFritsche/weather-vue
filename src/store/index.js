@@ -16,6 +16,7 @@ export default new Vuex.Store({
     },
     searchTerm: 'New York',
     theme: 'light',
+    isNavDrawerOpened: false,
   },
   mutations: {
     SET_CURRENTFORECAST(state, data) {
@@ -31,6 +32,9 @@ export default new Vuex.Store({
     },
     SET_CURRENTTHEME(state, data) {
       state.theme = data;
+    },
+    SET_NAVDRAWER(state) {
+      state.isNavDrawerOpened = !state.isNavDrawerOpened;
     },
   },
   actions: {
@@ -57,6 +61,7 @@ export default new Vuex.Store({
     currentForecast: (state) => state.currentForecast,
     fiveDayForecast: (state) => state.fiveDayForecast,
     currentTheme: (state) => state.theme,
+    isNavDrawerOpened: (state) => state.isNavDrawerOpened,
   },
   modules: {},
 });

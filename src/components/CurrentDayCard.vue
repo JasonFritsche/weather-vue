@@ -1,5 +1,10 @@
 <template>
-  <div class="card-container">
+  <div
+    :class="{
+      'sm-card-container': $vuetify.breakpoint.mdAndDown,
+      'card-container': $vuetify.breakpoint.lgAndUp,
+    }"
+  >
     <v-card class="mx-auto mt-6">
       <CurrentDayHeader></CurrentDayHeader>
       <CurrentDayDetails></CurrentDayDetails>
@@ -16,3 +21,8 @@ export default {
   data: () => ({}),
 };
 </script>
+<style scoped>
+.sm-card-container {
+  width: 100vw !important;
+}
+</style>

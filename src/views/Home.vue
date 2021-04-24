@@ -2,9 +2,9 @@
   <v-main>
     <TheNavigation />
     <TheToolbar></TheToolbar>
-    <v-container fluid>
+    <v-content>
       <router-view></router-view>
-    </v-container>
+    </v-content>
   </v-main>
 </template>
 <script>

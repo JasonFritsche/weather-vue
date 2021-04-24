@@ -2,7 +2,7 @@
   <div>
     <v-navigation-drawer app permanent expand-on-hover>
       <v-list class="nav-list">
-        <router-link to="/" v-slot="{ isExactActive, navigate }">
+        <router-link to="/weather-vue" v-slot="{ isExactActive, navigate }">
           <v-list-item
             class="nav-item"
             :class="{ activeNavItem: isExactActive }"
@@ -15,7 +15,10 @@
             </v-list-item-content>
           </v-list-item>
         </router-link>
-        <router-link to="/FiveDayForecast" v-slot="{ isExactActive, navigate }">
+        <router-link
+          to="/weather-vue/FiveDayForecast"
+          v-slot="{ isExactActive, navigate }"
+        >
           <v-list-item
             class="nav-item"
             :class="{ activeNavItem: isExactActive }"

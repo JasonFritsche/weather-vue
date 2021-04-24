@@ -1,9 +1,14 @@
 <template>
   <v-app-bar color="primary" elevate-on-scroll>
-    <v-btn icon>
+    <v-btn icon class="d-flex d-small-flex d-md-none" @click="toggleNav">
+      <v-icon large color="accent">mdi-menu</v-icon>
+    </v-btn>
+    <v-btn icon class="d-none d-md-flex d-lg-flex d-xl-flex">
       <v-icon large color="accent">mdi-sunglasses</v-icon>
     </v-btn>
-    <v-toolbar-title>Weather Vue</v-toolbar-title>
+    <v-toolbar-title class="d-none d-md-flex d-lg-flex d-xl-flex"
+      >WeatherVue</v-toolbar-title
+    >
     <v-spacer></v-spacer>
     <div class="d-flex align-self-start justify-end pt-2">
       <TheSearch></TheSearch>
@@ -24,6 +29,9 @@ export default {
   name: 'TheToolbar',
   components: { TheSearch },
   methods: {
+    toggleNav() {
+      this.$store.commit('SET_NAVDRAWER');
+    },
     updateTheme(newTheme) {
       this.$store.commit('SET_CURRENTTHEME', newTheme);
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;

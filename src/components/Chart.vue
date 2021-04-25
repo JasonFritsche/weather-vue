@@ -1,7 +1,10 @@
 <template>
-  <div v-if="options">
-    <highcharts class="hc" :options="options" ref="chart"></highcharts>
-  </div>
+  <highcharts
+    v-if="options"
+    class="hc"
+    :options="options"
+    ref="chart"
+  ></highcharts>
 </template>
 
 <script>
@@ -9,4 +12,8 @@ export default {
   props: ['options'],
 };
 </script>
-<style scoped></style>
+<style scoped>
+.chart-container {
+  width: 100%;
+}
+</style>

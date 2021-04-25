@@ -76,4 +76,8 @@ export default {
   },
 };
 </script>
-<style lang="scss"></style>
+<style lang="scss">
+.v-expansion-panel-content__wrap {
+  padding: 0.15rem !important;
+}
+</style>

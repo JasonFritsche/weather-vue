@@ -18,7 +18,12 @@ export default {
   }),
   mounted() {
     this.parseForecastData();
-    this.buildChartOptions(this.chartBgColor);
+    this.buildChartOptions();
+  },
+  watch: {
+    '$store.state.theme': function() {
+      this.buildChartOptions();
+    },
   },
   methods: {
     parseForecastData() {

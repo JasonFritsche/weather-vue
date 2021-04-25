@@ -13,12 +13,10 @@
     <div class="d-flex align-self-start justify-end pt-2">
       <TheSearch></TheSearch>
       <v-btn icon v-if="!$vuetify.theme.dark" @click="updateTheme('dark')">
-        <v-icon class="mr-1" color="blue-grey darken-4"
-          >mdi-weather-night</v-icon
-        >
+        <v-icon class="mr-1" color="blue-grey darken-4">mdi-lightbulb</v-icon>
       </v-btn>
       <v-btn icon v-if="$vuetify.theme.dark" @click="updateTheme('light')">
-        <v-icon color="yellow darken-3">mdi-white-balance-sunny</v-icon>
+        <v-icon color="yellow darken-3">mdi-lightbulb-outline</v-icon>
       </v-btn>
     </div>
   </v-app-bar>

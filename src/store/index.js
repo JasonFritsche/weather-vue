@@ -60,7 +60,7 @@ export default new Vuex.Store({
   getters: {
     currentForecast: (state) => state.currentForecast,
     fiveDayForecast: (state) => state.fiveDayForecast,
-    currentTheme: (state) => state.theme,
+    theme: (state) => state.theme,
     isNavDrawerOpened: (state) => state.isNavDrawerOpened,
   },
   modules: {},

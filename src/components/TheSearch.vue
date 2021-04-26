@@ -7,6 +7,7 @@
     outlined
     clearable
     @keyup="handleSearch($event)"
+    color="secondary"
     class="align-self-start search-text-field"
   ></v-text-field>
 </template>

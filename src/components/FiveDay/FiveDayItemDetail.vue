@@ -4,8 +4,8 @@
   </v-expansion-panel-content>
 </template>
 <script>
-import Chart from './Chart';
-import { getTimeOfDay } from '../util/utils';
+import Chart from '../Chart';
+import { getTimeOfDay } from '../../util/utils';
 export default {
   name: 'FiveDayItemDetail',
   props: ['forecastData'],

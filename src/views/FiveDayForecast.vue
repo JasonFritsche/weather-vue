@@ -2,7 +2,7 @@
   <FiveDayCard></FiveDayCard>
 </template>
 <script>
-import FiveDayCard from '../components/FiveDayCard';
+import FiveDayCard from '../components/FiveDay/FiveDayCard';
 export default {
   name: 'FiveDayForecast',
   components: {

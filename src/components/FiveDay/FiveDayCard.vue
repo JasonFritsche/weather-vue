@@ -18,9 +18,9 @@
   </div>
 </template>
 <script>
-import { getDateOfWeek } from '../util/utils';
+import { getDateOfWeek } from '../../util/utils';
 import FiveDayItem from './FiveDayItem';
-import CurrentDayHeader from './CurrentDayHeader';
+import CurrentDayHeader from '../CurrentDay/CurrentDayHeader';
 export default {
   name: 'FiveDayCard',
   props: [],

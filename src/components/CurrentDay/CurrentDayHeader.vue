@@ -31,7 +31,7 @@
   </div>
 </template>
 <script>
-import { getCurrentDate, getWeatherIcon } from '../util/utils';
+import { getCurrentDate, getWeatherIcon } from '../../util/utils';
 export default {
   name: 'CurrentDayHeader',
   props: [],

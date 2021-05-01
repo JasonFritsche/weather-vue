@@ -20,7 +20,7 @@
   </div>
 </template>
 <script>
-import { getMonthDayDate, getTimeOfDay } from '../util/utils';
+import { getMonthDayDate, getTimeOfDay } from '../../util/utils';
 import FiveDayItemDetail from './FiveDayItemDetail';
 export default {
   name: 'FiveDayItem',

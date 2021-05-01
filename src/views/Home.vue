@@ -8,8 +8,8 @@
   </v-main>
 </template>
 <script>
-import TheToolbar from '../components/TheToolbar';
-import TheNavigation from '../components/TheNavigation';
+import TheToolbar from '../components/SingleInstance/TheToolbar';
+import TheNavigation from '../components/SingleInstance/TheNavigation';
 export default {
   name: 'Home',
   components: {

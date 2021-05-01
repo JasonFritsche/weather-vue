@@ -74,6 +74,6 @@ describe('CurrentDayHeader Component', () => {
         },
       },
     });
-    expect(actions.loadCurrentForecast).toBeCalled();
+    expect(actions.loadCurrentForecast).toHaveBeenCalled();
   });
 });

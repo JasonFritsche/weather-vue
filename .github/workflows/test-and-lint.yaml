@@ -1,13 +1,6 @@
 name: Run Unit Tests and Lint Files
 "on": push
 jobs:
-  build-vue: 
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: |
-              npm ci
-              npm run build
   unit_test-lint:
     runs-on: ubuntu-latest
     steps:

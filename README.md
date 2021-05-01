@@ -1,7 +1,7 @@
 # weather-vue
 
 ## About
-Welcome to the weather-vue repository. This project serves as a sandbox for me to learn Vue. With this application you are able to retrieve the current and a fove-day forecast for a given U.S. city. You can view the project live [here](https://jasonfritsche.github.io/weather-vue/).
+Welcome to the weather-vue repository. This project serves as a sandbox for me to learn Vue. With this application you are able to retrieve the current and a five-day forecast for a given U.S. city. You can view the project live [here](https://jasonfritsche.github.io/weather-vue/).
 
 ### Project Purpose
 My goals for this project were/are:

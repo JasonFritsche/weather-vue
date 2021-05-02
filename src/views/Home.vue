@@ -2,7 +2,7 @@
   <v-main>
     <TheNavigation />
     <TheToolbar></TheToolbar>
-    <v-content class="content" style="overflow:auto">
+    <v-content class="content">
       <router-view></router-view>
     </v-content>
   </v-main>
@@ -18,8 +18,4 @@ export default {
   },
 };
 </script>
-<style scoped>
-.content {
-  padding: 0 !important;
-}
-</style>
+<style scoped></style>

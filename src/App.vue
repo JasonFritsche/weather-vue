@@ -14,4 +14,8 @@ export default {
   },
 };
 </script>
-<style></style>
+<style>
+.v-navigation-drawer {
+  z-index: 999999 !important;
+}
+</style>

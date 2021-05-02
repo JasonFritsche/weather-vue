@@ -53,6 +53,19 @@
             </v-list-item-content>
           </v-list-item>
         </router-link>
+        <router-link to="/weather-vue/Map" v-slot="{ isExactActive, navigate }">
+          <v-list-item
+            class="nav-item"
+            :class="{ activeNavItem: isExactActive }"
+            @click="navigate"
+          >
+            <v-list-item-content>
+              <v-list-item-title class="nav-item-title">
+                <v-icon>mdi-numeric-5-box-multiple-outline</v-icon> Map
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </router-link>
       </v-list>
     </v-navigation-drawer>
   </div>

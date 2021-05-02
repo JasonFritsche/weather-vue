@@ -61,7 +61,7 @@
           >
             <v-list-item-content>
               <v-list-item-title class="nav-item-title">
-                <v-icon>mdi-numeric-5-box-multiple-outline</v-icon> Map
+                <v-icon>mdi-map-search-outline</v-icon> Map
               </v-list-item-title>
             </v-list-item-content>
           </v-list-item>

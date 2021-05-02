@@ -2,7 +2,7 @@
   <v-main>
     <TheNavigation />
     <TheToolbar></TheToolbar>
-    <v-content class="content">
+    <v-content class="content" style="overflow:auto">
       <router-view></router-view>
     </v-content>
   </v-main>

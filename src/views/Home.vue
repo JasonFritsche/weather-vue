@@ -2,7 +2,7 @@
   <v-main>
     <TheNavigation />
     <TheToolbar></TheToolbar>
-    <v-content>
+    <v-content class="content">
       <router-view></router-view>
     </v-content>
   </v-main>
@@ -18,4 +18,8 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+.content {
+  padding: 0 !important;
+}
+</style>

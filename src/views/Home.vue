@@ -1,5 +1,5 @@
 <template>
-  <v-main>
+  <v-main class="main">
     <TheNavigation />
     <TheToolbar></TheToolbar>
     <v-content class="content">
@@ -18,4 +18,8 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+.main {
+  padding: 0 !important;
+}
+</style>

@@ -1,52 +1,95 @@
 <template>
-  <div id="container">
-    <l-map ref="mapRef" :zoom="zoom" :center="center" id="l-map-container">
-      <l-tile-layer :url="url"></l-tile-layer>
-    </l-map>
-  </div>
+  <div id="map"></div>
 </template>
 <script>
-import { LMap, LTileLayer } from 'vue2-leaflet';
+import * as L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-
-const centerMapDefault = [39, -98];
+import 'leaflet-openweathermap';
+import 'leaflet.locatecontrol';
+import 'leaflet.locatecontrol/dist/L.Control.Locate.min.css';
 
 export default {
-  name: 'MjMap',
-  components: {
-    LMap,
-    LTileLayer,
-  },
+  name: 'TheMap',
+  components: {},
   data() {
     return {
-      zoom: 9,
-      url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
-      markerPos: [98.5795, 39.8283],
+      url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      currentPosition: [],
+      zoom: 8,
+      map: L.Map,
+      precipitationLayer: null,
+      center: [30.214575081187988, -93.21830749511719],
     };
   },
-  computed: {
-    center() {
-      return this.state && this.state.items.length
-        ? this.state.items[0]._geoloc
-        : centerMapDefault;
-    },
-  },
+  computed: {},
   mounted() {
-    // Accessing leaflet API methods according to
-    // @link https://korigan.github.io/Vue2Leaflet/#/quickstart?id=accessing-leaflet-api
-
-    this.$nextTick(() => {
-      if (typeof this.$refs.mapRef !== 'undefined') {
-        this.map = this.$refs.mapRef.mapObject;
-        this.map.zoomControl.remove();
-        this.recenterMap(centerMapDefault);
-      }
+    const detailed = L.tileLayer(
+      'https://tile-{s}.openstreetmap.fr/hot/{z}/{x}/{y}.png'
+    );
+    const street = L.tileLayer(
+      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+    );
+    const precipitation = L.OWM.precipitation({
+      appId: process.env.VUE_APP_KEY,
+      opacity: 0.7,
     });
+    const temperature = L.OWM.temperature({
+      appId: process.env.VUE_APP_KEY,
+      opacity: 0.5,
+      temperatureUnit: 'F',
+    });
+    const wind = L.OWM.wind({
+      appId: process.env.VUE_APP_KEY,
+      opacity: 0.5,
+    });
+    const snow = L.OWM.snow({
+      appId: process.env.VUE_APP_KEY,
+      opacity: 0.8,
+    });
+    const clouds = L.OWM.clouds({
+      appId: process.env.VUE_APP_KEY,
+      opacity: 0.8,
+    });
+    const pressure = L.OWM.pressure({
+      appId: process.env.VUE_APP_KEY,
+      opacity: 0.5,
+    });
+    this.map = L.map('map', {
+      center: this.center,
+      zoom: 4,
+      layers: [street, detailed],
+    });
+    const baseMaps = {
+      Street: street,
+      Detailed: detailed,
+    };
+    const overlayMaps = {
+      Precipitation: precipitation,
+      Temperature: temperature,
+      Wind: wind,
+      Snow: snow,
+      Clouds: clouds,
+      Pressure: pressure,
+    };
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(
+      this.map
+    );
+    L.control.layers(baseMaps, overlayMaps).addTo(this.map);
+    this.map.addControl(
+      L.control.locate({
+        locateOptions: {
+          enableHighAccuracy: true,
+          setView: true,
+        },
+        watch: true,
+        icon: 'map-search-outline',
+      })
+    );
   },
 };
 </script>
 <style scoped lang="scss">
-#l-map-container {
+#map {
   width: 100%;
   height: calc(100vh - 64px);
 }

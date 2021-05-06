@@ -5,7 +5,7 @@
       'card-container': $vuetify.breakpoint.lgAndUp,
     }"
   >
-    <v-card class="mx-auto mt-6">
+    <v-card class="mx-auto mt-6 ml-3">
       <CurrentDayHeader></CurrentDayHeader>
       <v-container fluid>
         <v-expansion-panels>

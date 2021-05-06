@@ -19,6 +19,7 @@ export default {
       map: L.Map,
       precipitationLayer: null,
       center: [30.214575081187988, -93.21830749511719],
+      appId: process.env.VUE_APP_KEY,
     };
   },
   computed: {},
@@ -29,29 +30,29 @@ export default {
     const street = L.tileLayer(
       'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
     );
-    const precipitation = L.OWM.precipitation({
-      appId: process.env.VUE_APP_KEY,
+    const Precipitation = L.OWM.precipitation({
+      appId: this.appId,
       opacity: 0.7,
     });
-    const temperature = L.OWM.temperature({
-      appId: process.env.VUE_APP_KEY,
+    const Temperature = L.OWM.temperature({
+      appId: this.appId,
       opacity: 0.5,
       temperatureUnit: 'F',
     });
-    const wind = L.OWM.wind({
-      appId: process.env.VUE_APP_KEY,
+    const Wind = L.OWM.wind({
+      appId: this.appId,
       opacity: 0.5,
     });
-    const snow = L.OWM.snow({
-      appId: process.env.VUE_APP_KEY,
+    const Snow = L.OWM.snow({
+      appId: this.appId,
       opacity: 0.8,
     });
-    const clouds = L.OWM.clouds({
-      appId: process.env.VUE_APP_KEY,
+    const Clouds = L.OWM.clouds({
+      appId: this.appId,
       opacity: 0.8,
     });
-    const pressure = L.OWM.pressure({
-      appId: process.env.VUE_APP_KEY,
+    const Pressure = L.OWM.pressure({
+      appId: this.appId,
       opacity: 0.5,
     });
     this.map = L.map('map', {
@@ -64,12 +65,12 @@ export default {
       Detailed: detailed,
     };
     const overlayMaps = {
-      Precipitation: precipitation,
-      Temperature: temperature,
-      Wind: wind,
-      Snow: snow,
-      Clouds: clouds,
-      Pressure: pressure,
+      Precipitation,
+      Temperature,
+      Wind,
+      Snow,
+      Clouds,
+      Pressure,
     };
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(
       this.map

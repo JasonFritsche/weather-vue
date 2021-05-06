@@ -19,7 +19,7 @@ export default {
 };
 </script>
 <style scoped>
-.main {
+.content {
   padding: 0 !important;
 }
 </style>

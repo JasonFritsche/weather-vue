@@ -83,7 +83,7 @@ export default {
           setView: true,
         },
         watch: true,
-        icon: 'map-search-outline',
+        icon: 'mdi mdi-map-marker-radius',
       })
     );
   },
